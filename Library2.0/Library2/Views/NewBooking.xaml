@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Library2.Views.NewBooking"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:Library2.ViewModels"
+             xmlns:local="clr-namespace:Library2.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#F2F2F2" FocusManager.FocusedElement="{Binding ElementName=focusOn}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Comments:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+        <TextBox x:Name="focusOn"
+            Style="{StaticResource tbStyle}" Grid.Column="0" Grid.Row="1"
+                 HorizontalAlignment="Stretch"
+                 Text="{Binding Path=NewComments, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5"
+                 Width="220"
+                 Height="90"
+                 ToolTip="Enter comment">
+            <TextBox.InputBindings>
+                <KeyBinding Command="{Binding NewComment}" Key="Return" />
+            </TextBox.InputBindings>
+        </TextBox>
+        <TextBlock Text="Choose reader:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2"/>
+        <ComboBox ItemsSource="{Binding Readers}"
+                  Grid.Column="0"
+                  Grid.Row="3"
+                  SelectedItem="{Binding NewReader}"
+                  Height="20"
+                  Width="200">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding Title}" Width="16" Height="16" Margin="0,2,5,2" />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="Name" />
+                                    <Binding Path="Surname" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Rectangle Fill="{Binding Title}" Width="16" Height="16" Margin="0,2,5,2" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Text="Choose book:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
+        <ComboBox ItemsSource="{Binding Books}"
+                  Grid.Column="0"
+                  Grid.Row="5"
+                  SelectedItem="{Binding NewBook}"
+                  Height="20"
+                  Width="200">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Fill="{Binding Title}" Width="16" Height="16" Margin="0,2,5,2" />
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}">
+                                    <Binding Path="Title" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Rectangle Fill="{Binding Title}" Width="16" Height="16" Margin="0,2,5,2" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button Grid.Row="6"
+				Grid.Column="0"
+				Style="{StaticResource buttonStyle}"
+				ToolTip="Dodaj nowy adres"
+                HorizontalAlignment="Center"
+                Command="{Binding ConfirmBooking}">
+            <TextBlock Text="New Booking" TextWrapping="Wrap" TextAlignment="Center"/>
+        </Button>
+    </Grid>
+</UserControl>
