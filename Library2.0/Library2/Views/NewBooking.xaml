@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:Library2.ViewModels"
              xmlns:local="clr-namespace:Library2.Views"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="315" d:DesignWidth="250">
     <Grid Background="#F2F2F2" FocusManager.FocusedElement="{Binding ElementName=focusOn}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
