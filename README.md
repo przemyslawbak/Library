@@ -8,12 +8,14 @@ A simple DEMO solution for creating library bookings and managing them.
 2. Registering new bookings.
 3. Deleting old bookings.
 4. Marking existing bookings as returned.
-5. Using dropdown lists of registered users and books.
+5. Input validation for version 1.0.
+6. Using dropdown lists of registered users and books in version 2.0.
 
 ## Technology
 
 1. Approaches:
-  - MVVM.
+  - MVVM,
+  - saving data using EF Core ORM.
   
 2. Application is using:
   - C#, WPF,
