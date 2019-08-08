@@ -1,3 +1,5 @@
+# Library_Booking
+
 ## Purpose
 
 A simple DEMO solution for creating library bookings and managing them.
@@ -20,3 +22,7 @@ A simple DEMO solution for creating library bookings and managing them.
 2. Application is using:
   - C#, WPF,
   - Entity Framework Core.
+
+## Production
+
+10 Feb 2019
